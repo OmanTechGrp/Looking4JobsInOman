@@ -152,7 +152,7 @@ class Vacancies extends StatelessWidget {
             Row(
               children: <Widget>[
                 // Text('NoReqMale: '),
-                Text('${vacanciesList[index]['NoReqMale']} عدد الذكور             '),
+                Text('${vacanciesList[index]['NoReqMale']} عدد الذكور            '),
                 Text('${vacanciesList[index]['NoReqfemale']} عدد الإناث              '),
                 Text('${vacanciesList[index]['VacdBothGender']} العدد من الجنسين  ')
               ],

@@ -23,7 +23,12 @@ class _MyHomePageState extends State<MyHomePage> {
     Text('وظائف بعقد')
   ];
 
+  bool isLoading = false;
+
   void _fetchDataFromAPI() {
+    setState(() {
+          isLoading = true;
+    });
     var url =
         "https://www.manpower.gov.om/api/api/Vacancy?PageSize=9999&CurrentPage=1&EducationCode=0&RefCode=0&OccupationName=&RegCode=0&WilayatCode=0&SponsorName=&Gender=ANY&LanguageID=1";
     http.get(url).then((http.Response res) {
@@ -32,12 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
       if (isSuccess) {
         print('request Sucess');
         setState(() {
+          isLoading = false;
           vacancyDetailsList = responsData['RequestVacancyDetailsList'];
         });
       } else {
         print('request Fail');
         print(responsData['ErrorMessage']);
         setState(() {
+          isLoading = false;
           errorMessage = responsData['ErrorMessage'];
         });
       }
@@ -49,8 +56,28 @@ class _MyHomePageState extends State<MyHomePage> {
       _selectedIndex = index;
     });
   }
-  // final Color bgColor = const Color(0xFF07575B);
 
+  Widget screenDispay(){
+
+    Widget _whatDisplayOnScreen;
+
+    if (isLoading){
+
+      _whatDisplayOnScreen = CircularProgressIndicator();
+
+    } else {
+      _whatDisplayOnScreen = Vacancies(
+              vacanciesList: vacancyDetailsList,
+              errorMessage: errorMessage,
+            );
+    }
+
+
+
+    return _whatDisplayOnScreen;
+  }
+
+  // final Color bgColor = const Color(0xFF07575B);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,10 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 100.0,
           )),
           Expanded(
-            child: Vacancies(
-              vacanciesList: vacancyDetailsList,
-              errorMessage: errorMessage,
-            ),
+            child: screenDispay(),
           )
         ],
       ),
@@ -131,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(
+        
         onPressed: _fetchDataFromAPI,
         tooltip: 'Get Data',
         child: Icon(Icons.autorenew),
