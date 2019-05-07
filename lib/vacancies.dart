@@ -43,7 +43,7 @@ class Vacancies extends StatelessWidget {
                       )
                     : Text('-'),
                 Text(
-                  'المرجع في الوزارة: ',
+                  'المرجع  : ',
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                 ),
@@ -66,12 +66,6 @@ class Vacancies extends StatelessWidget {
                 ),
               ],
             ),
-            // Row(
-            //   children: <Widget>[
-            //     Text('SponsorName: '),
-            //     vacanciesList[index]['SponsorName'] != null ? Text(vacanciesList[index]['SponsorName']) : Text('-'),
-            //   ],
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -128,14 +122,7 @@ class Vacancies extends StatelessWidget {
                 ),
               ],
             ),
-            // Row(
-            //   children: <Widget>[
-            //     Text('OccupationDesc: '),
-            //     vacanciesList[index]['OccupationDesc'] != null
-            //         ? Text(vacanciesList[index]['OccupationDesc'])
-            //         : Text('-'),
-            //   ],
-            // ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
