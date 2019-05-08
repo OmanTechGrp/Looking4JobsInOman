@@ -4,13 +4,11 @@ Open Data Competition by ITA
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Looking4Job is a Mobile App (Open Source) written in Flutter (the latest Framework from Google, which is one code base for both IOS and Android) to bring together Job Seekers and Organizations looking for the right candidates for Part-time, Contractual and Permanent jobs
 
-A few resources to get you started if this is your first Flutter project:
+Looking4Job has a frontend interface that can be downloaded for free as a one-window solution for Job Seekers for searching available vacancies around the Sultanate based on their skill set and apply for multiple opportunities easily.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Looking4Job has a backend interface that can be commercialized (if required) and will provide Businesses and Organizations to post vacancies and search the right candidates.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+Looking4Job has another backend interface that shows the complete picture of the vacancies and situation of job market to Ministry of Manpower in real-time.  This feature will help the ministry to plan trainings for skills that are short in the market.
+
