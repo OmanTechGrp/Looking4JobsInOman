@@ -144,13 +144,14 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text("إضافة إعلان"),
             trailing: Icon(Icons.arrow_forward),
           ),
-          ListTile(
-            title: Text("التسجيل"),
-            trailing: Icon(Icons.arrow_forward),
-          ),
+
           ListTile(
             title: Text("تسجيل الدخول"),
             trailing: Icon(Icons.arrow_forward),
+            onTap: (){
+              Navigator.of(context).pushNamed('/loginpage');
+            },
+            
           ),
         ],
       ),
