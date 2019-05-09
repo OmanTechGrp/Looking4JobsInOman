@@ -2,7 +2,7 @@
 
 Open Data Competition by ITA
 
-## Getting Started
+## Why Looking4Job
 
 Looking4Job is a Mobile App (Open Source) written in Flutter (the latest Framework from Google, which is one code base for both IOS and Android) to bring together Job Seekers and Organizations looking for the right candidates for Part-time, Contractual and Permanent jobs
 
