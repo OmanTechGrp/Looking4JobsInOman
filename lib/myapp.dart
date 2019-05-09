@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:looking4jobs/auth.dart';
-import 'package:looking4jobs/myhomepage.dart';
+import 'package:looking4jobs/pages/auth.dart';
+import 'package:looking4jobs/pages/myhomepage.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
@@ -12,17 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        //         locale: model.appLocal,
-        // localizationsDelegates: [
-        //   const TranslationsDelegate(),
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalWidgetsLocalizations.delegate,
-        // ],
-        // supportedLocales: [
-        //   const Locale('ar', ''), // Arabic
-        //   const Locale('en', ''), // English
-        // ],
-        // primarySwatch: Colors.deepOrange,
         // 0xFF07575B
         primaryColor: Color(0xFF66A5AD),
         backgroundColor: Color(0xFF66A5AD),
