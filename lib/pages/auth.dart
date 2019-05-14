@@ -3,8 +3,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:scoped_model/scoped_model.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
+import '../scoped-models/main_model.dart';
 
 // import 'user.dart';
 
@@ -17,7 +19,6 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-
   final Map<String, dynamic> _formData = {
     'email': null,
     'password': null,
@@ -29,7 +30,6 @@ class _AuthPageState extends State<AuthPage> {
 
   AuthMode _authMode = AuthMode.Login;
 
- 
   DecorationImage _buildBackgroundImage() {
     return DecorationImage(
       fit: BoxFit.cover,
@@ -100,14 +100,15 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   // void _submitForm(Function authenticate) async {
-  void _submitForm() async {
+  void _submitForm(Function login) async {
     // if (!_formKey.currentState.validate() || !_formData['acceptTerms']) {
     //   return;
     // }
-    if (!_formKey.currentState.validate())  {
+    if (!_formKey.currentState.validate()) {
       return;
     }
     _formKey.currentState.save();
+    login(_formData['email'],_formData['password']);
     // Map<String, dynamic> successInformation;
     // successInformation = await authenticate(
     //     _formData['email'], _formData['password'], _authMode);
@@ -186,14 +187,17 @@ class _AuthPageState extends State<AuthPage> {
                       height: 10.0,
                     ),
 
-                    RaisedButton(
-                                textColor: Colors.white,
-                                child: Text(_authMode == AuthMode.Login
-                                    ? 'LOGIN'
-                                    : 'SIGNUP'),
-                                onPressed: () =>
-                                    _submitForm(),
-                              ),
+                    ScopedModelDescendant<MainModel>(
+                      builder: (BuildContext context, Widget child,
+                          MainModel model) {
+                        return RaisedButton(
+                          textColor: Colors.white,
+                          child: Text(
+                              _authMode == AuthMode.Login ? 'LOGIN' : 'SIGNUP'),
+                          onPressed: () => _submitForm(model.login),
+                        );
+                      },
+                    ),
                     // ScopedModelDescendant<MainModel>(
                     //   builder: (BuildContext context, Widget child,
                     //       MainModel model) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:looking4jobs/pages/auth.dart';
 import 'package:looking4jobs/pages/myhomepage.dart';
+import 'package:looking4jobs/scoped-models/main_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
@@ -9,7 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // final Color bgColor = const Color(0xFF07575B);
 
-    return MaterialApp(
+    return ScopedModel<MainModel>(
+      model: MainModel(),
+      child: MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // 0xFF07575B
@@ -28,6 +32,6 @@ class MyApp extends StatelessWidget {
         "/loginpage":(BuildContext context)=>new AuthPage(),
         // "/signup":(BuildContext context)=>new SignUpPage()
       }
-    );
+    ),);
   }
 }

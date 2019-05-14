@@ -136,6 +136,55 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+    void _onItemTapped(int index) {
+    if (!isLoading) {
+      _selectedIndex = index;
+      switch (_selectedIndex) {
+        case 0:
+          {
+            print("Excellent");
+            _fetchDataFromAPI();
+          }
+          break;
+
+        case 1:
+          {
+            print("Good");
+            _partTime();
+          }
+          break;
+
+        case 2:
+          {
+            print("Fair");
+            _tempContract();
+          }
+          break;
+
+        case 3:
+          {
+            print("Poor");
+            _perContract();
+          }
+          break;
+
+        case 4:
+          {
+            print("Fail");
+            _jobSercher();
+          }
+          break;
+
+        default:
+          {
+            print("Invalid choice");
+          }
+          break;
+      }
+    }
+  }
+
+
   Widget drawerMenu() {
     return Drawer(
 
@@ -233,53 +282,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _onItemTapped(int index) {
-    if (!isLoading) {
-      _selectedIndex = index;
-      switch (_selectedIndex) {
-        case 0:
-          {
-            print("Excellent");
-            _fetchDataFromAPI();
-          }
-          break;
-
-        case 1:
-          {
-            print("Good");
-            _partTime();
-          }
-          break;
-
-        case 2:
-          {
-            print("Fair");
-            _tempContract();
-          }
-          break;
-
-        case 3:
-          {
-            print("Poor");
-            _perContract();
-          }
-          break;
-
-        case 4:
-          {
-            print("Fail");
-            _jobSercher();
-          }
-          break;
-
-        default:
-          {
-            print("Invalid choice");
-          }
-          break;
-      }
-    }
-  }
 
   Widget screenDispay() {
     Widget _whatDisplayOnScreen;
